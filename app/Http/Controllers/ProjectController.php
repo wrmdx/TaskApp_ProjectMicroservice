@@ -29,14 +29,16 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        
         $data = $request->validated();
         $project = Project::create($data);
-    
+
+
         return response()->json([
             "data" => new ProjectResource($project),
         ]);
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -56,7 +58,7 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $project->update($data);
-    
+
         return response()->json([
             "data" => new ProjectResource($project),
         ]);
